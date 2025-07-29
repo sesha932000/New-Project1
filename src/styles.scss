@@ -1,0 +1,5 @@
+/* If you want to use Tailwind CSS directives, rename this file to styles.css and ensure PostCSS is set up with Tailwind.
+   If you need to keep using SCSS, import Tailwind's CSS output instead: */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
