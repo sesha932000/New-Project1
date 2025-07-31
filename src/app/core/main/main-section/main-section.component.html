@@ -1,0 +1,154 @@
+
+
+
+<div class="flex">
+<div class="md:w-2/12 sm:h-1/2">
+    <app-sidebar-search></app-sidebar-search>
+</div>
+
+<div class="sm:w-12/12 w-full m-6 mr-5  overflow-y-auto mt-48">
+  <div class="container mx-auto p-4 space-y-6" *ngIf="promotedTemple">
+  <!-- Top Section (2 Grid) -->
+  <div class="grid md:grid-cols-2 gap-6">
+<div class="w-full overflow-hidden relative hidden sm:block">
+  <img
+    src="assets/images/icons/card_images/_Carousel arrow (1).png"
+    (click)="onPageChange(currentPage - 1)"
+    class="absolute left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 cursor-pointer z-10"
+    [class.opacity-50]="currentPage === 1"
+    [class.pointer-events-none]="currentPage === 1"
+    alt="Previous"
+  />
+  <img
+    src="assets/images/icons/card_images/_Carousel arrow.png"
+    (click)="onPageChange(currentPage + 1)"
+    class="absolute right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 cursor-pointer z-20"
+    [class.opacity-50]="currentPage === totalPages"
+    [class.pointer-events-none]="currentPage === totalPages"
+    alt="Next"
+  />
+
+  <!-- Carousel -->
+  <div class="flex whitespace-nowrap transition-transform duration-500 ease-in-out"
+       [style.transform]="'translateX(-' + (currentPage - 1) * 100 + '%)'">
+    <div *ngFor="let temple of combinedTemples" class="flex-none min-w-full relative">
+      <img [src]="temple.imageUrl" [alt]="temple.name"
+           class="rounded-lg  md:object-cover sm:w-full h-80" />
+     <div
+    class="absolute bottom-0 left-0  text-white text-sm px-3 py-1 m-2 rounded flex items-center gap-1">
+    <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.50001 9.75C9.67362 9.75 10.625 8.74264 10.625 7.5C10.625 6.25736 9.67362 5.25 8.50001 5.25C7.32641 5.25 6.37501 6.25736 6.37501 7.5C6.37501 8.74264 7.32641 9.75 8.50001 9.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8.50001 16.5C11.3333 13.5 14.1667 10.8137 14.1667 7.5C14.1667 4.18629 11.6296 1.5 8.50001 1.5C5.3704 1.5 2.83334 4.18629 2.83334 7.5C2.83334 10.8137 5.66668 13.5 8.50001 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {{ temple.location }}
+  </div>
+    </div>
+  </div>
+</div>
+
+<!-- For xs screen only (static hardcoded temple) -->
+<div class="block sm:hidden relative">
+  <img 
+    [src]="xsTemple.imageUrl" 
+    [alt]="xsTemple.name"
+    class="rounded-lg object-cover w-full h-80" 
+  />
+  <div
+    class="absolute bottom-0 left-0  text-white text-sm px-3 py-1 m-2 rounded flex items-center gap-1">
+    <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.50001 9.75C9.67362 9.75 10.625 8.74264 10.625 7.5C10.625 6.25736 9.67362 5.25 8.50001 5.25C7.32641 5.25 6.37501 6.25736 6.37501 7.5C6.37501 8.74264 7.32641 9.75 8.50001 9.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8.50001 16.5C11.3333 13.5 14.1667 10.8137 14.1667 7.5C14.1667 4.18629 11.6296 1.5 8.50001 1.5C5.3704 1.5 2.83334 4.18629 2.83334 7.5C2.83334 10.8137 5.66668 13.5 8.50001 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {{ xsTemple.location }}
+  </div>
+</div>
+
+
+
+
+    <!-- Promoted Temple Card -->
+    <div class="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between">
+      <div>
+        <span class="text-xs text-gray-500 bg-yellow-100 px-2 py-1 rounded-lg">Promoted Temple</span>
+        <h2 class="text-xl font-bold mt-2">{{ promotedTemple.name }}</h2>
+        <p class="text-sm text-gray mt-2">
+          {{ promotedTemple.description }}
+        </p>
+      </div>
+      <div class="mt-2 flex gap-2">
+         <app-button
+          label="View Template"
+          width="150px"
+          height="36px"
+          rounded="4px"
+          [useGradient]="false"
+           [bgColor]="'#ffffff'" 
+           borderClass="border"
+           
+          textColor="#475467"
+        ></app-button>
+         <app-button
+          label="Donate now"
+          width="150px"
+          height="36px"
+          rounded="4px"
+          bgColor="#F7941D"
+          textColor="#ffffff"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lower Section (3 Grid) -->
+  <div class="grid xs:w-full sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div
+      *ngFor="let temple of otherTemples"
+      class="bg-white rounded-lg shadow-md overflow-hidden"
+    >
+      <div class="relative sm:w-full h-48">
+  <img [src]="temple.imageUrl" [alt]="temple.name" class="w-full h-full object-cover rounded" />
+
+<div
+  class="absolute bottom-0 left-0 text-white text-sm px-3 py-1 m-2 rounded flex items-center gap-1">
+  <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M8.50001 9.75C9.67362 9.75 10.625 8.74264 10.625 7.5C10.625 6.25736 9.67362 5.25 8.50001 5.25C7.32641 5.25 6.37501 6.25736 6.37501 7.5C6.37501 8.74264 7.32641 9.75 8.50001 9.75Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M8.50001 16.5C11.3333 13.5 14.1667 10.8137 14.1667 7.5C14.1667 4.18629 11.6296 1.5 8.50001 1.5C5.3704 1.5 2.83334 4.18629 2.83334 7.5C2.83334 10.8137 5.66668 13.5 8.50001 16.5Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  {{ temple.location }}
+</div>
+
+</div>
+
+      <div class="p-4">
+        
+        <h3 class="text-lg font-kohinoor ">{{ temple.name }}</h3>
+        <p class="text-sm text-gray mt-1">
+          {{ temple.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-pagination
+  [currentPage]="currentPage"
+  [totalPages]="totalPages"
+  (pageChange)="onPageChange($event)">
+</app-pagination>
+<app-footer-section></app-footer-section>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

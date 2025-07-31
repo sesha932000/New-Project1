@@ -3,3 +3,11 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+
+@font-face {
+  font-family: 'Kohinoor Bangla';
+  src: url('assets/fonts/Befonts-License.txt') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+}

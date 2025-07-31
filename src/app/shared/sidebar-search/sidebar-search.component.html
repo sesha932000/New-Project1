@@ -1,0 +1,118 @@
+
+
+<div
+  class="fixed xs:z-30 md:top-36 sm:top-28 left-0 xs:w-64 md:w-52  bg-white transition-transform duration-300"
+  [ngClass]="{
+    'transform translate-x-0 md:translate-x-0': isSidebarVisible,
+    'transform -translate-x-64 md:translate-x-0': !isSidebarVisible
+  }"
+>
+
+
+<div class="fixed md:sticky h-screen top-0 right-0 xs:w-60 md:w-52 bg-white shadow-lg py-5">
+      <div class="h-[calc(100vh-150px)] overflow-y-auto p-2 custom-scrollbar">
+
+  <div class="mb-6">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-semibold text-orange ">Location</h3>
+      <button (click)="showLocationSearchInput = !showLocationSearchInput">
+        <img src="assets/images/icons/search-icon.png" alt="Search" class="w-5 h-5" />
+      </button>
+    </div>
+
+    <input
+      *ngIf="showLocationSearchInput"
+      type="text"
+      class="w-full border rounded p-2 mb-3 outline-none  "
+      placeholder="Search location..."
+      [(ngModel)]="locationSearchTerm"
+      (input)="filterLocationOptions()"
+    />
+
+    <ul class="space-y-2">
+  <li *ngFor="let option of filteredLocationOptions">
+    <app-checkbox
+      [id]="option.id"
+      [label]="option.label"
+      [(checked)]="option.checked"
+    ></app-checkbox>
+  </li>
+  <li *ngIf="filteredLocationOptions.length === 0" class="text-gray text-sm">No data found</li>
+  <li *ngIf="filteredLocationOptions.length > 0 && filteredLocationOptions.length < locationOptions.length">
+    <button class="text-orange text-sm mt-1" (click)="filteredLocationOptions = locationOptions.slice(0, locationOptions.length)">+ more location</button>
+  </li>
+</ul>
+  </div>
+
+  <div class="mb-6">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-semibold text-orange">Mission</h3>
+      <button (click)="showMissionSearchInput = !showMissionSearchInput">
+        <img src="assets/images/icons/search-icon.png" alt="Search" class="w-5 h-5" />
+      </button>
+    </div>
+
+    <input
+      *ngIf="showMissionSearchInput"
+      type="text"
+      class="w-full border rounded p-2 mb-3 outline-none"
+      placeholder="Search mission..."
+      [(ngModel)]="missionSearchTerm"
+      (input)="filterMissionOptions()"
+    />
+
+ <ul class="space-y-2">
+  <li *ngFor="let option of filteredMissionOptions ">
+    <app-checkbox
+      [id]="option.id"
+      [label]="option.label"
+      [(checked)]="option.checked"
+    ></app-checkbox>
+  </li>
+  <li *ngIf="filteredMissionOptions .length === 0" class="text-gray text-sm">No data found</li>
+  <li *ngIf="filteredMissionOptions .length > 0 && filteredMissionOptions .length < locationOptions.length">
+    <button class="text-orange text-sm mt-1" (click)="filteredMissionOptions  = locationOptions.slice(0, locationOptions.length)">+ more location</button>
+  </li>
+</ul>
+  </div>
+
+ 
+  <div class="mb-6  max-h-[300px] overflow-y-auto">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-lg font-semibold text-orange">Deity</h3>
+      <button (click)="showDeitySearchInput = !showDeitySearchInput">
+        <img src="assets/images/icons/search-icon.png" alt="Search" class="w-5 h-5" />
+      </button>
+    </div>
+
+    <input
+      *ngIf="showDeitySearchInput"
+      type="text"
+      class="w-full border rounded p-2 mb-3 outline-none"
+      placeholder="Search deity..."
+      [(ngModel)]="deitySearchTerm"
+      (input)="filterDeityOptions()"
+    />
+
+    <ul class="space-y-2">
+  <li *ngFor="let option of filteredDeityOptions">
+    <app-checkbox
+      [id]="option.id"
+      [label]="option.label"
+      [(checked)]="option.checked"
+    ></app-checkbox>
+  </li>
+  <li *ngIf="filteredDeityOptions.length === 0" class="text-gray text-sm">No data found</li>
+  <li *ngIf="filteredDeityOptions.length > 0 && filteredDeityOptions.length < locationOptions.length">
+    <button class="text-orange text-sm mt-1" (click)="filteredDeityOptions = locationOptions.slice(0, locationOptions.length)">+ more location</button>
+  </li>
+</ul>
+
+  </div>
+
+  </div>
+</div>
+
+
+
+</div>

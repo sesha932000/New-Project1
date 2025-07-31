@@ -1,0 +1,151 @@
+
+<div class="fixed w-full xs:z-50">
+
+
+<header  class="md:block xs:bg-background h-[33px] xs:justify-end xs:flex sm:justify-end">
+  
+  <nav class="flex justify-end  items-center h-full gap-3 text-sm text-gray px-4 ">
+
+    <a href="#"
+      (click)="setActive('Fundraisers')"
+      class=" place-items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
+      [ngClass]="activeMenu === 'Fundraisers' 
+        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+      Fundraisers
+    </a>
+
+    <a href="#"
+      (click)="setActive('Events')"
+      class=" place-items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
+      [ngClass]="activeMenu === 'Events' 
+        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+      Events
+    </a>
+
+    <a href="#"
+      (click)="setActive('Favorites')"
+      class=" place-items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
+      [ngClass]="activeMenu === 'Favorites' 
+        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+      Favorites
+    </a>
+
+    <div
+      (click)="setActive('English')"
+      class="flex items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
+      [ngClass]="activeMenu === 'English' 
+        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+      <span class="font-semibold text-sm">English</span>
+      <svg width="16.67" height="15" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.7608 13.1667H16.7391M10.7608 13.1667L9.16663 16.5M10.7608 13.1667L13.1485 8.17419C13.3409 7.77189 13.4371 7.57075 13.5688 7.50718C13.6832 7.4519 13.8167 7.4519 13.9311 7.50718C14.0628 7.57075 14.159 7.77189 14.3514 8.17419L16.7391 13.1667M16.7391 13.1667L18.3333 16.5M1.66663 3.16667H6.66663M6.66663 3.16667H9.58329M6.66663 3.16667V1.5M9.58329 3.16667H11.6666M9.58329 3.16667C9.16984 5.63107 8.21045 7.86349 6.80458 9.73702M8.33329 10.6667C7.82285 10.4373 7.30217 10.1184 6.80458 9.73702M6.80458 9.73702C5.67748 8.87314 4.66893 7.68886 4.16663 6.5M6.80458 9.73702C5.46734 11.5191 3.72615 12.9765 1.66663 14" 
+          stroke="#E62E05" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+
+  </nav>
+</header>
+
+
+<header class="bg-white">
+    <div class=" xs:flex sm:flex md:gap-10 items-center sm:justify-between xs:gap-4 sm:gap-2">
+    
+    <!-- LEFT: -->
+    <div class="flex md:justify-around xs:gap-4 sm:gap-6 xs:ml-5 sm:ml-10 md:ml-10 md:flex-row md:items-center md:w-[70%] sm:w-[60%] xs:w-[80%]">
+      <img src="assets/images/icons/logo.png" alt="Logo" class="h-10 shrink-0" />
+
+      <div class="relative w-full max-w-md">
+        <button class="absolute left-3 top-1/2 -translate-y-1/2">
+          <img src="assets/images/icons/search-icon.png" alt="Search" class="w-4 h-4" />
+        </button>
+        <input
+          type="text"
+          placeholder="Search for temples, events or fundraisers"
+          class="sm:w-full xs:w-full pl-10 pr-10 h-12 rounded-full border border-gray-300 outline-none text-sm"
+        />
+        <button class="absolute right-3 top-1/2 -translate-y-1/2">
+    <img src="assets/images/icons/microphone-01.png" alt="Mic" class="w-4 h-4"/>
+  </button>
+      </div>
+
+      <div class="mt-2 md:mt-0 md:-ml-2">
+        <app-button
+          label="Donate now"
+          width="100px"
+          height="36px"
+          rounded="4px"
+         [useGradient]="true"
+          textColor="#ffffff"
+        ></app-button>
+      </div>
+    </div>
+
+    <!-- RIGHT-->
+   <div class="xs:hidden sm:hidden md:flex items-center justify-start md:gap-4 sm:gap-2 bg-dooj-gradient
+        sm:pl-8  px-4 py-2 rounded-tl-[48px] h-[60px]"
+     *ngIf="!(sidebarService.isSidebarOpen$ | async)">
+      <div class="text-white text-sm  cursor-pointer  sm:text-xs md:w-20 sm:w-20">Chennai ▼</div>
+
+      <div
+        class="flex items-center gap-2 px-3 sm:px-2 py-1 rounded-full bg-white shadow-md text-orange-500 
+             sm:text-xs text-sm font-medium cursor-pointer whitespace-pre-wrap"
+      >
+        <img src="assets/images/icons/GB.png" alt="GBP" class="w-5 h-5 rounded-full" />
+        <span>GBP</span>
+        <svg
+          class="w-3 h-3 text-orange-500"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+
+      <!-- Profile -->
+      <div class="flex items-center gap-2 ">
+        <img src="assets/images/icons/Avatar.png" alt="Profile" class="w-8 h-8 rounded-full" />
+        <span class="text-white text-sm sm:text-xs">Sesha Prasath</span>
+      </div>
+    </div>
+
+    <button
+  *ngIf="!isSidebarVisible"
+  class="block  md:hidden text-orange-400 text-2xl text-right xs:p-4"
+  (click)="toggleSidebar()"
+>
+  ☰
+</button>
+
+<button
+  *ngIf="isSidebarVisible"
+  class="block md:hidden text-orange-400 text-2xl text-right xs:p-4"
+  (click)="toggleSidebar()"
+>
+  ✕
+</button>
+  </div>
+</header>
+
+<header class="flex justify-between bg-header ">
+<div class="md:h-[63px] flex items-center justify-start">
+        <h1 class="text-2xl font-bold text-gray-900 md:ml-24 sm:ml-10 xs:ml-5">Explore Temples</h1>
+    </div>
+    <div class="sm:flex gap-2 sm:justify-center items-center xs:hidden">
+      <img src="assets/images/icons/home-line.png" alt="Logo" class="h-5 w-5 shrink-0" />
+      <img src="assets/images/icons/chevron-right.png" alt="Logo" class="h-5 w-5 shrink-0" />
+              <h3 class="text-gray-900 sm:mr-8 md:mr-10">Explore Temples</h3>
+    </div>
+
+
+</header>
+  
+</div>
+
+
+
+
