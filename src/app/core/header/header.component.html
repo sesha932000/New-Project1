@@ -114,17 +114,19 @@
       </div>
     </div>
 
-    <button
+ <button
   *ngIf="!isSidebarVisible"
-  class="block  md:hidden text-orange-400 text-2xl text-right xs:p-4"
+  class="block md:hidden text-orange-400 text-2xl text-right xs:p-4"
   (click)="toggleSidebar()"
 >
-  ☰
+  <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 7.5H19M1 1.5H19M7 13.5H19" stroke="orange" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </button>
 
 <button
   *ngIf="isSidebarVisible"
-  class="block md:hidden text-orange-400 text-2xl text-right xs:p-4"
+  class="block md:hidden text-orange text-2xl text-right xs:p-4"
   (click)="toggleSidebar()"
 >
   ✕
