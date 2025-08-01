@@ -33,14 +33,21 @@ This project is a Temple Listing web application built with Angular 16 and Tailw
 
 * Users can browse temples with images, descriptions, and locations.
 
-* Supports search and filter by location (state, city) and mission.
-
-* Pagination to navigate through multiple temple listings.
+* Interactive Sidebar Navigation: The application features a collapsible, intuitive sidebar for quick access to different temple categories, events, and donation sections.
+  
+* Real-Time Sidebar Search: A search input in the sidebar allows users to filter temple listings or categories instantly as they type, using RxJS with debounced real-time filtering for smooth UX.
+  
+ ## Powered by Angular + RxJS:
+ 
+* Debounced input handling using debounceTime, distinctUntilChanged, and switchMap.
+  
+* Filter logic bound to reactive forms and observables for efficient state updates.
 
 ## Temple Details
 
 * Quick actions like Donate Now and View Details are available.
-
+* 
+* Pagination to navigate through multiple temple listings.
 
 ## Dynamic UI with Angular + RxJS
 
@@ -69,5 +76,19 @@ This project is a Temple Listing web application built with Angular 16 and Tailw
 * Reusable components for temple cards, filters, and pagination.
 
 * Scalable structure with a clean folder hierarchy for future enhancements.
+
+##  Figma Design – Missing Downloadable Assets
+
+* The Figma file does not allow downloading certain images, particularly those used in the carousel and temple card templates.
+
+* Additionally, the location text intended to appear below the images is not part of the downloadable layers.
+
+* Because the text is embedded within the image and cannot be separated, we are unable to download the full design asset without the location label.
+
+As a result:
+
+* Layout overlap occurs on small and medium screens due to overlaping the location text.
+
+* This will be fixed once proper exportable assets or updated Figma access is provided.
 
 
