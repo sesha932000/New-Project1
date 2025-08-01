@@ -33,14 +33,21 @@ This project is a Temple Listing web application built with Angular 16 and Tailw
 
 * Users can browse temples with images, descriptions, and locations.
 
-* Supports search and filter by location (state, city) and mission.
-
-* Pagination to navigate through multiple temple listings.
+* Interactive Sidebar Navigation: The application features a collapsible, intuitive sidebar for quick access to different temple categories, events, and donation sections.
+  
+* Real-Time Sidebar Search: A search input in the sidebar allows users to filter temple listings or categories instantly as they type, using RxJS with debounced real-time filtering for smooth UX.
+  
+ ## Powered by Angular + RxJS:
+ 
+* Debounced input handling using debounceTime, distinctUntilChanged, and switchMap.
+  
+* Filter logic bound to reactive forms and observables for efficient state updates.
 
 ## Temple Details
 
 * Quick actions like Donate Now and View Details are available.
-
+* 
+* Pagination to navigate through multiple temple listings.
 
 ## Dynamic UI with Angular + RxJS
 
