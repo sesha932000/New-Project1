@@ -1,4 +1,4 @@
-<button
+<button class="toast-container"
   [type]="type"
   [ngStyle]="{
     width: width,
@@ -19,6 +19,7 @@
     'transition-all',
     borderClass
   ]"
+  (click)="handleClick()"
 >
   {{ label }}
 </button>

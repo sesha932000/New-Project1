@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -18,5 +18,11 @@ export class ButtonComponent {
   @Input() useGradient: boolean = true;
 
   @Input() borderClass: string = 'border border-border-gray';
+   @Output() btnClick = new EventEmitter<void>(); 
 
+
+   handleClick() {
+  console.log('Button clicked:', this.label);
+  this.btnClick.emit();
+}
 }

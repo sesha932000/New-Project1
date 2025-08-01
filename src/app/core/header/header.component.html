@@ -10,8 +10,8 @@
       (click)="setActive('Fundraisers')"
       class=" place-items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
       [ngClass]="activeMenu === 'Fundraisers' 
-        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
-        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+        ? 'bg-white text-orange border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
       Fundraisers
     </a>
 
@@ -19,8 +19,8 @@
       (click)="setActive('Events')"
       class=" place-items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
       [ngClass]="activeMenu === 'Events' 
-        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
-        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+        ? 'bg-white text-orange border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
       Events
     </a>
 
@@ -28,8 +28,8 @@
       (click)="setActive('Favorites')"
       class=" place-items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
       [ngClass]="activeMenu === 'Favorites' 
-        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
-        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+        ? 'bg-white text-orange border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
       Favorites
     </a>
 
@@ -37,8 +37,8 @@
       (click)="setActive('English')"
       class="flex items-center gap-1 px-3 py-1.5 h-[28px] cursor-pointer"
       [ngClass]="activeMenu === 'English' 
-        ? 'bg-white text-orange-500 border border-border-gray rounded-md shadow-sm' 
-        : 'hover:bg-white hover:text-orange-500 hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
+        ? 'bg-white text-orange border border-border-gray rounded-md shadow-sm' 
+        : 'hover:bg-white hover:text-orange hover:border hover:border-border-gray hover:rounded-md hover:shadow-sm'">
       <span class="font-semibold text-sm">English</span>
       <svg width="16.67" height="15" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M10.7608 13.1667H16.7391M10.7608 13.1667L9.16663 16.5M10.7608 13.1667L13.1485 8.17419C13.3409 7.77189 13.4371 7.57075 13.5688 7.50718C13.6832 7.4519 13.8167 7.4519 13.9311 7.50718C14.0628 7.57075 14.159 7.77189 14.3514 8.17419L16.7391 13.1667M16.7391 13.1667L18.3333 16.5M1.66663 3.16667H6.66663M6.66663 3.16667H9.58329M6.66663 3.16667V1.5M9.58329 3.16667H11.6666M9.58329 3.16667C9.16984 5.63107 8.21045 7.86349 6.80458 9.73702M8.33329 10.6667C7.82285 10.4373 7.30217 10.1184 6.80458 9.73702M6.80458 9.73702C5.67748 8.87314 4.66893 7.68886 4.16663 6.5M6.80458 9.73702C5.46734 11.5191 3.72615 12.9765 1.66663 14" 
@@ -54,7 +54,7 @@
     <div class=" xs:flex sm:flex md:gap-10 items-center sm:justify-between xs:gap-4 sm:gap-2">
     
     <!-- LEFT: -->
-    <div class="flex md:justify-around xs:gap-4 sm:gap-6 xs:ml-5 sm:ml-10 md:ml-10 md:flex-row md:items-center md:w-[70%] sm:w-[60%] xs:w-[80%]">
+    <div class="flex md:justify-around xs:gap-4 sm:gap-6 xs:ml-5 sm:ml-10 md:ml-10 md:flex-row md:items-center md:w-[70%] sm:w-[60%] xs:w-[80%] mb-3">
       <img src="assets/images/icons/logo.png" alt="Logo" class="h-10 shrink-0" />
 
       <div class="relative w-full max-w-md">
@@ -72,13 +72,14 @@
       </div>
 
       <div class="mt-2 md:mt-0 md:-ml-2">
-        <app-button
+        <app-button class="toast-container"
           label="Donate now"
           width="100px"
           height="36px"
           rounded="4px"
          [useGradient]="true"
           textColor="#ffffff"
+          (btnClick)="showSuccess()" 
         ></app-button>
       </div>
     </div>
