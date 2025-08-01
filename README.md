@@ -77,4 +77,18 @@ This project is a Temple Listing web application built with Angular 16 and Tailw
 
 * Scalable structure with a clean folder hierarchy for future enhancements.
 
+##  Figma Design – Missing Downloadable Assets
+
+* The Figma file does not allow downloading certain images, particularly those used in the carousel and temple card templates.
+
+* Additionally, the location text intended to appear below the images is not part of the downloadable layers.
+
+* Because the text is embedded within the image and cannot be separated, we are unable to download the full design asset without the location label.
+
+As a result:
+
+* Layout overlap occurs on small and medium screens due to overlaping the location text.
+
+* This will be fixed once proper exportable assets or updated Figma access is provided.
+
 
